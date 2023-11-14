@@ -4,7 +4,7 @@ const verifyToken=(req,res,next)=>{
     const token=req.cookies.token
     console.log("hello"+token)
     if(!token){
-        return res.status(401).json("You are not authenticated!"))
+        return res.status(401).json("You are not authenticated!")
     }
     jwt.verify(token,process.env.SECRET,async (err,data)=>{
         if(err){
