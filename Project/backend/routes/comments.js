@@ -11,8 +11,7 @@ router.post("/create",verifyToken,async (req,res)=>{
     try{
         const newComment=new Comment(req.body)
         const savedComment=await newComment.save()
-         res.header('Access-Control-Allow-Origin', 'https://leafy-snickerdoodle-60f394.netlify.app');
-        res.header('Access-Control-Allow-Credentials', true);
+
         res.status(200).json(savedComment)
     }
     catch(err){
