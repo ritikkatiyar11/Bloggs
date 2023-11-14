@@ -40,7 +40,7 @@ router.post("/login",async (req,res)=>{
         const {password,...info}=user._doc
          res.header('Access-Control-Allow-Origin', 'https://leafy-snickerdoodle-60f394.netlify.app');
         res.header('Access-Control-Allow-Credentials', true);
-        res.cookie("token",token).status(200).json(info)
+        res.cookie("token",token,{sameSite: 'None' }).status(200).json(info)
 
     }
     catch(err){
