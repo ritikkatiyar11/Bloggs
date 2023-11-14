@@ -38,6 +38,8 @@ router.post("/login",async (req,res)=>{
         }
         const token=jwt.sign({_id:user._id,username:user.username,email:user.email},process.env.SECRET,{expiresIn:"3d"})
         const {password,...info}=user._doc
+         res.header('Access-Control-Allow-Origin', 'https://leafy-snickerdoodle-60f394.netlify.app');
+        res.header('Access-Control-Allow-Credentials', true);
         res.cookie("token",token).status(200).json(info)
 
     }
